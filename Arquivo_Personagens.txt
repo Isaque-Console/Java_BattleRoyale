@@ -1,0 +1,6 @@
+Jhon;Fogo;6;3;2;0;Agua
+Isaque;Fogo;5;6;0;0;Agua
+Jhon2;Agua;4;6;1;0;Terra
+Jordan;Terra;5;2;4;0;Fogo
+jose;Agua;7;1;0;3;Terra
+fulano;Agua;5;1;2;3;Terra

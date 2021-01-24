@@ -1,0 +1,1 @@
+nome;tipo;pontosdevida;ataqueMax;defesaMax;agilidade;desvantagem
