@@ -6,44 +6,46 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) throws IOException, JogoException {
-        while(true) {
+        while(true) { // REPETE ENQUANTO O USUÁRIO NÃO ESCOLHER A OPÇÃO ZERO.
             try {
-                System.out.println(Tela.menu());
+                System.out.println(Tela.menu()); //MENSAGEM DO MENU INICIAL.
                 Scanner sc = new Scanner(System.in);
                 Integer opcao = sc.nextInt();
 
-                if(opcao == 0){
-                    System.out.println("Encerrando o jogo!");
-                    return ;
+                // OPÇÕES DE 0 A 5, CASO FOR UM NÚMERO FORA DESSE INTERVALO, SERÁ LANÇADA UMA EXCEÇÃO.
+                switch( opcao )
+                {
+                    case 0:
+                        System.out.println("Encerrando o jogo!");
+                        return ;
+                    case 1:
+                        FuncoesMenu.criarPersonagem();
+                        break;
+                    case 2:
+                        FuncoesMenu.deletarPersonagem();
+                        break;
+
+                    case 3:
+                        FuncoesMenu.editarPersonagem();
+                        break;
+                    case 4:
+                        FuncoesMenu.exibirPersonagens();
+                        break;
+                    case 5:
+                        Batalha.realizarBatalha();
+                        break;
+                    default:
+                        throw new JogoException("Opção inválida!");
                 }
-                else if(opcao == 1){
-                    FuncoesMenu.criarPersonagem();
-                }
-                else if(opcao == 2){
-                    FuncoesMenu.deletarPersonagem();
-                }
-                else if(opcao == 3){
-                    FuncoesMenu.editarPersonagem();
-                }
-                else if(opcao == 4){
-                    FuncoesMenu.exibirPersonagens();
-                }
-                else if(opcao == 5){
-                    Batalha.realizarBatalha();
-                }
-                else{
-                    throw new JogoException("Opção inválida!");
-                }
-                // Implementar: ler o Enter e depois limpar a tela do console;
             }
             catch (JogoException e) {
-                System.out.println(e.getMessage());
+                System.out.println(e.getMessage()); // MENSAGEM PERSONALIZADA.
             }
             catch (Exception e){
                 System.out.println(e.getMessage());
             }
             finally {
-                Batalha.esvaziarVariaveis();
+                Batalha.esvaziarVariaveis(); //ESVAZIAR AS VARIÁVEIS, PARA O CASO DE ESCOLHER BATALHAR NOVAMENTE.
             }
         }
     }

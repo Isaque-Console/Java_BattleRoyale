@@ -1,7 +1,7 @@
 package Aplicacao;
 
 public class Tela {
-    public static String menu(){
+    public static String menu(){ // MENSAGEM DO MENU INICIAL.
         return "===============BATTLE ROYALE===============\n" +
                 "Escolha uma das opções abaixo: \n" +
                 "Digite 0 para sair do jogo\n" +

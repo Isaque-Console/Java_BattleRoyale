@@ -11,10 +11,9 @@ public abstract class Personagem {
     private String nome;
     private String tipo;
     private Integer pontosDeVida = 1;
-    private Integer ataqueMax = 0;
-    private Integer pontosDeAtaque = 0;
-    private Integer defesaMax = 0;
-    private Integer pontosDeDefesa = 0;
+    private Integer ataqueMax = 0; // NÍVEL DO ATAQUE DO PERSONAGEM.
+    private Integer defesaMax = 0; // NÍVEL DA DEFESA DO PERSONAGEM.
+    private Integer pontosDeDefesa = 0; // NÍVEL DA DEFESA QUE ESTÁ SENDO UTILIZADA NO MOMENTO.
     private Integer agilidade = 0;
     private String desvantagem;
 
@@ -22,12 +21,11 @@ public abstract class Personagem {
         this.tipo = tipo;
     }
 
-    public Personagem(String nome, String tipo, Integer pontosDeVida, Integer ataqueMax, Integer pontosDeAtaque, Integer defesaMax, Integer pontosDeDefesa, Integer agilidade, String desvantagem) {
+    public Personagem(String nome, String tipo, Integer pontosDeVida, Integer ataqueMax, Integer defesaMax, Integer pontosDeDefesa, Integer agilidade, String desvantagem) {
         this.nome = nome;
         this.tipo = tipo;
         this.pontosDeVida = pontosDeVida;
         this.ataqueMax = ataqueMax;
-        this.pontosDeAtaque = pontosDeAtaque;
         this.defesaMax = defesaMax;
         this.pontosDeDefesa = pontosDeDefesa;
         this.agilidade = agilidade;
@@ -75,7 +73,7 @@ public abstract class Personagem {
         setPontosDeDefesa(getDefesaMax());
     }
 
-    //PERSONAGEM USA O POWERUP,ACRESCENTANDO 1 PONTO NO ATAQUE DELE ATÉ.
+    //PERSONAGEM USA O POWERUP, QUE ACRESCENTA 1 PONTO NO ATAQUE DELE.
     public void powerUp(){
         setAtaqueMax(getAtaqueMax() + 1);
         System.out.println("Acrescentado 1 ponto no ataque!");
@@ -112,14 +110,6 @@ public abstract class Personagem {
 
     public void setAtaqueMax(Integer ataqueMax) {
         this.ataqueMax = ataqueMax;
-    }
-
-    public Integer getPontosDeAtaque() {
-        return pontosDeAtaque;
-    }
-
-    public void setPontosDeAtaque(Integer pontosDeAtaque) {
-        this.pontosDeAtaque = pontosDeAtaque;
     }
 
     public Integer getDefesaMax() {

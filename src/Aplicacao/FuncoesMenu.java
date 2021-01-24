@@ -14,6 +14,7 @@ import java.util.Scanner;
 
 public class FuncoesMenu {
 
+    // MOSTRA A MENSAGEM E CHAMA TODOS O MÉTODOS PARA QUE A CRIAÇÃO DO PERSONAGEM ACONTEÇA.
     public static void criarPersonagem() throws JogoException, IOException {
         Personagem p;
 
@@ -28,7 +29,7 @@ public class FuncoesMenu {
         gravarDados(dadosPersonagem);
     }
 
-
+    // MOSTRA A MENSAGEM DE EDITAR,CHAMA O MÉTODO DE EDITAR O ARQUIVO E VERIFICA SE O NOME FOI EDITADO.
     public static void editarPersonagem() throws FileNotFoundException, JogoException {
         System.out.println("==============================================");
         System.out.println("           Editando Personagem");
@@ -44,8 +45,8 @@ public class FuncoesMenu {
         }
     }
 
+    // BUSCA O PERSONAGEM PELO NOME, E DELETA ELE DO ARQUIVO.
     public static void deletarPersonagem() throws IOException, JogoException {
-        //  "digite o nome do personagem que você quer deletar: "
         System.out.print("digite o nome do personagem que você quer deletar: ");
         Scanner ler = new Scanner(System.in);
         String nome = ler.next();
@@ -71,6 +72,7 @@ public class FuncoesMenu {
         }
     }
 
+    //LER O ARQUIVO E PRINTA OS DADOS DOS PERSOANGENS.
     public static void exibirPersonagens() throws FileNotFoundException {
         // leio o arquivo e exibo os dados
         System.out.println("==============================================");
@@ -106,6 +108,7 @@ public class FuncoesMenu {
         return arquivoCompleto;
     }
 
+    // INTERAGE COM O USUÁRIO PARA ELE DISTRIBUIR 10 PONTOS ENTRE OS ATRIBUTOS, E PARA DAR O NOME DO PERSONAGEM.
     public static Personagem recebendoValores() throws JogoException, FileNotFoundException {
         int pontos = 10;
         Personagem p = instanciandoPersonagem();
@@ -149,6 +152,7 @@ public class FuncoesMenu {
         return p;
     }
 
+    // INSTANCIA UM PERSONAGEM DE ACORDO COM O TIPO QUE O USUÁRIO ESCOLHEU.
     public static Personagem instanciandoPersonagem() throws JogoException {
         Personagem p;
         Scanner sc = new Scanner(System.in);
@@ -175,6 +179,7 @@ public class FuncoesMenu {
         return p;
     }
 
+    // ESCREVE OS DADOS NO ARQUIVO.
     public static void gravarDados(String dados) throws IOException {
         String caminho = "Arquivo_Personagens.txt";
         FileWriter fw = new FileWriter( caminho, true );
@@ -183,8 +188,8 @@ public class FuncoesMenu {
         bw.close();
     }
 
+    //VERIFICA NO ARQUIVO SE O NOME ESCOLHIDO JÁ ESTÁ SENDO USADO POR UM PERSONAGEM.
     public static void nomeInedito(String nome) throws FileNotFoundException, JogoException {
-        // ver se a String já está gravada como nome de outro personagem, no arquivo.
         List<String> linhas = new ArrayList<String>();
         linhas = lerArquivoCompleto();
         for (int i = 0; i < linhas.toArray().length; i++) {
@@ -195,12 +200,14 @@ public class FuncoesMenu {
         }
     }
 
+    // DEIXA O ARQUIVO EM BRANCO,PARA PODER SER ESCRITO NOVAMENTE COM OUTROS DADOS.
     public static void limparArquivo() throws IOException {
         File caminho = new File("Arquivo_Personagens.txt");
         Writer clean = new BufferedWriter(new FileWriter(caminho));
         clean.close();
     }
 
+    // EDITA O ARQUIVO, MUDANDO O NOME DO PERSONAGEM.
     public static boolean editarArquivo() throws FileNotFoundException, JogoException {
         Scanner lerNome = new Scanner(System.in);
         String nome = lerNome.next();

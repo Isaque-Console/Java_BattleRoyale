@@ -22,29 +22,34 @@ public class Batalha {
 
 
 
-
+    // GET
     public static List<Personagem> getPersonagensBatalhando() {
         return personagensBatalhando;
     }
 
+    //SET
     public static void setPersonagensBatalhando(List<Personagem> personagensBatalhando) {
         Batalha.personagensBatalhando = personagensBatalhando;
     }
 
+    //GET
     public static List<Personagem> getNaoSorteados() {
         return naoSorteados;
     }
 
+    //SET
     public static void setNaoSorteados(List<Personagem> lista) {
         for (int i = 0; i < lista.toArray().length; i++) {
             Batalha.naoSorteados.add(lista.get(i));
         }
     }
 
+    //GET
     public static Integer getTurno() {
         return turno;
     }
 
+    //SET
     public static void setTurno(Integer turno) {
         Batalha.turno = turno;
     }
@@ -102,7 +107,7 @@ public class Batalha {
             }
             // depois daqui,irá iniciar um novo turno.
         }
-        System.out.println("Personagem " + getPersonagensBatalhando().get(0).getNome() + " Venceu essa batalha!");
+        System.out.println("Personagem " + getPersonagensBatalhando().get(0).getNome() + " venceu essa batalha!");
         esvaziarVariaveis();
         //depois daqui,a batalha acaba.
     }
@@ -151,7 +156,7 @@ public class Batalha {
         return r;
     }
 
-    //esvaziar as variaveis para uma nova batalha.
+    //esvaziar as variaveis, para o caso de acontecer uma nova batalha.
     public static void esvaziarVariaveis(){
         personagensBatalhando.removeAll(personagensBatalhando);
         naoSorteados.removeAll(naoSorteados);
@@ -171,12 +176,12 @@ public class Batalha {
     }
 
     private static void mensagemNovoTurno(){
-        System.out.println("=================TURNO " + getTurno() + "=================");// E:17, D:16
+        System.out.println("=================TURNO " + getTurno() + "=================");
     }
 
-    // VERIFICA SE JÁ SE PASSARAM 4 TURNOS. CASO SIM, EXECUTA A HABILIDADE ESPECIAL.
+    // VERIFICA SE JÁ SE PASSARAM 4 TURNOS. CASO SIM, CADA PERSONAGEM VIVO UTILIZA SUA HABILIDADE ESPECIAL.
     private static void usarHabilidadeEspecial(){
-        if(getTurno()%4 == 0){
+        if(getTurno()%4 == 0){ // a habilidade especial só é usada de 4 em 4 turnos.
             System.out.println("HABILIDADE ESPECIAL!");
             for (int i = 0; i < personagensBatalhando.toArray().length; i++) {
                 personagensBatalhando.get(i).habilidadeEspecial();
