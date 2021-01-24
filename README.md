@@ -4,7 +4,8 @@ Jogo com menu inicial, com opções de:
 
 &bull;Sair do jogo: Fecha a aplicação.
 
-&bull;Criar personagem: Escolhe o nome e distribue 10 pontos entre os atributos do personagem criado.
+&bull;Criar personagem: Escolhe o tipo, o nome e distribue 10 pontos entre os atributos do personagem criado.
+
 &bull;Deletar personagem: Personagem é deletado, sendo buscado pelo nome.
 
 &bull;Editar: Escolhe um novo nome para algum personagem.
